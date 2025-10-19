@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <title> YS </title> <!--Website Title-->
+    <link rel="stylesheet" href="css/main.css">
+    <script type="module" src="js/main.js"></script>
+</head>
+
+<body> 
+    <header>
+        <nav id="top-nav"> 
+            <a href="index.html">home</a>
+            <div id="left-nav">
+                <a href="index.html">Dashboard</a>
+                <a href="projects.html">Projects</a>
+            </div>
+        </nav>
+    </header>
+    
+    <main id="main-wrapper">
+        <div id="project-wrapper" class="vflex">
+            <h2 class="page-header">Projects</h2>
+            <div id="tag-filters" class="hflex"></div>
+            
+            <div id="project-list-container"></div>
+            <div id="empty-state"> No projects found. </div>
+            
+            <template id="project-template">
+                <a class="project-link-wrapper">
+                    <div class="project-block">
+                        <div class="project-block-left">
+                            <div class="project-color"></div>
+                            <div class="project-name"></div>
+                        </div>
+                        <div class="project-block-right">   
+                            <div class="project-tag-container hflex"></div>
+                            <div class="project-link">></div> <!-- arrow instead of period -->
+                        </div>
+                    </div>
+                </a>
+            </template>
+            
+            <div id="thumbnail-preview"></div>
+        </div>
+    </main>
+</body>
+</html>
