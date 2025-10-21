@@ -5,6 +5,7 @@
     <title> YS </title> <!--Website Title-->
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="js/main.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 
 <body>
@@ -21,10 +22,21 @@
     <main id="main-wrapper">
         <div id="hero-wrapper" class="vflex">
             <div id="text-container">
-                <div class="hero-text">
+                <h1 class="hero-header bold">
                     Design Engineer <br>
-                    Yujeong Seo.
-                </div>
+                    Yujeong <span id="type-element"></span>
+                </h1>
+                <script>
+                    var typed = new Typed('#type-element', {
+                        strings:['Seo.^1000', 'Structures', 'Synthesises', 'Spreads'],
+                        typeSpeed: 100,
+                        backSpeed: 50,
+                        backDelay: 1000,
+                        loop: true,
+                        loopCount: 1,
+                        smartBackspace: false,
+                    });
+                </script>
             </div>
             <div id="icons-container" class="hflex">
                 <a class="icon-block vflex">

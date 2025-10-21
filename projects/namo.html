@@ -5,6 +5,10 @@
     <title> YS </title> <!--Website Title-->
     <link rel="stylesheet" href="../css/main.css">
     <script type="module" src="js/main.js"></script>
+    
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 </head>
 
 <body> 
@@ -18,14 +22,78 @@
         </nav>
     </header>
     
-    <div class="background-img"></div>
+    <!-- Hero Background Wrapper -->
+    <div id="hero-background">
+        <div id="background-img"></div>
+        <h1 id="project-name" class="hero-header">
+            <span class="regular"> My Gathering Record,</span> Namo
+        </h1>
+    </div>
+    
     <section id="main-wrapper">
         <main id="detail-wrapper">
-            <h2 class="page-header">
-                My Gathering Record, Namo
-            </h2>
-            Project description 
+            <div class="project-row">
+                <!-- Information Block -->
+                <div>
+                <div class="project-tag-container hflex">
+                    <div class="project-tag">UI/UX</div>
+                    <div class="project-tag">Product</div>
+                </div>
+                <ul>
+                    <li> Period: 2022-2025</li>
+                    <li> Extracurricular </li>
+                </ul>
+                </div>
+                
+                <!-- Subtitle -->
+                <h4 class="section-header light">
+                    <span class="bold"> How might we simplify group scheduling without endless back-and-forth?</span>
+                    Designing a calendar that thinks socially, not individually.
+                </h4>
+            </div>
+            
+            <div class="hline"></div>
+            
+            <!-- Content: Overview -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Overview </h4>
+                <p class="body-text pret">
+                    Developed a mobile app interface to redefine the group
+                    scheduling experience using the shared calendar feature.
+                </p>
+            </div>
+            
+            <!-- Content: Problem -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Problem </h4>
+                <div class="problem-wrapper">
+                    <div class="problem-block"> 
+                        <span class="bold"> Issue 1 </span><br>
+                        <span class="pret light"> Problem 1 is that </span>
+                    </div>
+                    <div class="problem-block"> 
+                        <span class="bold"> Issue 2 </span><br>
+                        <span class="pret light"> Problem 2 is that </span>
+                    </div>
+                    <div class="problem-block"> 
+                        <span class="bold"> Issue 3 </span><br>
+                        <span class="pret light"> Problem 3 is that </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content: Swiper -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Process </h4>
+            </div>
+             
+            <!-- Content: Non Swiper -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Solution </h4>
+            </div>
         </main>
+        
+        <!-- Block for contact -->
 
         <footer id="footer">
             <p> London, Seoul </p>
