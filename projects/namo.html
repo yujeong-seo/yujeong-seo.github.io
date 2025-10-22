@@ -66,7 +66,7 @@
             <!-- Content: Problem -->
             <div class="project-row">
                 <h4 class="title-text bold"> Problem </h4>
-                <div class="problem-wrapper">
+                <div class="problem-wrapper hflex">
                     <div class="problem-block"> 
                         <span class="bold"> Issue 1 </span><br>
                         <span class="pret light"> Problem 1 is that </span>
@@ -85,6 +85,36 @@
             <!-- Content: Swiper -->
             <div class="project-row">
                 <h4 class="title-text bold"> Process </h4>
+                <div class="project-content vflex">
+                    <div class="custom-pagination hflex"></div>
+                    <div class="myswiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> 1 </div>
+                            <div class="swiper-slide"> 2 </div>
+                            <div class="swiper-slide"> 3 </div>
+                        </div>
+                    </div>
+                    
+                    <script>
+                        var bulletTexts = ["Design", "Process", "Launch"];
+                        var swiper = new Swiper(".myswiper", {
+                            slidersPerView: 1,
+                            loop: true,
+                            spaceBetween: 30,
+                            effect: "fade",
+                            crossFade: true,
+                            pagination: {
+                                el: ".custom-pagination",
+                                bulletClass: "my-bullet",
+                                bulletActiveClass: "my-bullet-active",
+                                clickable: true,
+                                renderBullet: function (index, className) {
+                                    return '<button class="' + className + '">' + bulletTexts[index] + "</button>";
+                                }
+                            }
+                        });
+                    </script>
+                </div>
             </div>
              
             <!-- Content: Non Swiper -->
