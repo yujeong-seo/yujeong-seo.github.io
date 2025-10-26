@@ -1,99 +1,84 @@
+// Project List
 const projects_preview = [
     ["#da6022", "My Gathering Record, Namo", "projects/temp_thumbnail.jpg", ["UI/UX", "Branding"], "namo"],
     ["#f3593f", "Cooking Assistant, SAVRR", "projects/temp_thumbnail.jpg", ["UI/UX"], "savrr"],
-    ["#0c8c84", "Logical Cycling, Cyclogic", "projects/temp_thumbnail.jpg", ["UI/UX", "Business"], "cyclogic"],
+    ["#0c8c84", "Logical Cycling, Cyclogic", "projects/temp_thumbnail.jpg", ["UI/UX"], "cyclogic"],
     ["#f4e116", "SkillGrip", "projects/temp_thumbnail.jpg", ["Product", "Coding"], "skillgrip"],
     ["#5081b3", "Heta Architects Website Renewal", "projects/temp_thumbnail.jpg", ["Web", "Branding"], "temp"],
-    ["#fafafa", "H3 Investments Branding", "projects/temp_thumbnail.jpg", ["Branding"], "temp"],
-    ["#dadada", "Portfolio Website", "projects/temp_thumbnail.jpg", ["UI/UX", "Web"], "temp"],
+    ["#16274a", "H3 Investments Branding", "projects/temp_thumbnail.jpg", ["Branding"], "temp"],
+    ["#dadada", "Portfolio Website", "projects/temp_thumbnail.jpg", ["Web", "Coding"], "temp"],
     ["#17793d", "Lilou, the Dog", "projects/temp_thumbnail.jpg", ["Product", "Coding"], "gizmo-lilou"],
     ["#253054", "Elenect Web Game", "projects/temp_thumbnail.jpg", ["Web", "Coding"], "elenect"]
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-    const template = document.getElementById("project-template");
-    const container = document.getElementById("project-list-container");
-    const thumbnailPreview = document.getElementById("thumbnail-preview");
-    const tagFiltersContainer = document.getElementById("tag-filters");
-    const emptyState = document.getElementById("empty-state");
-
-    let currentFilter = "All";
-
-    function renderProjects(projectsToRender) {
-        container.innerHTML = "";
-        emptyState.style.display = projectsToRender.length === 0 ? "block" : "none";
-
-        projectsToRender.forEach(project => {
-            const clone = document.importNode(template.content, true);
-            const color = project[0];
-            const name = project[1];
-            const thumbnail = project[2];
-            const tags = project[3];
-            const slug = project[4];
-
-            clone.querySelector(".project-color").style.backgroundColor = color;
-            clone.querySelector(".project-name").textContent = name;
-            clone.querySelector(".project-link-wrapper").href = `/projects/${slug}.html`;
-
-            // Dynamically create and add tag elements
-            const tagsContainer = clone.querySelector(".project-tag-container");
-            tags.forEach(tagText => {
-                const tagElement = document.createElement("div");
-                tagElement.className = "project-tag";
-                tagElement.textContent = tagText;
-                tagsContainer.appendChild(tagElement);
-            });
-
-            // Add hover listeners for thumbnail
-            const projectBlock = clone.querySelector(".project-block");
-            projectBlock.addEventListener("mouseover", () => {
-                thumbnailPreview.style.display = "block";
-                thumbnailPreview.style.backgroundImage = `url('${thumbnail}')`;;
-            });
-            projectBlock.addEventListener("mouseleave", () => {
-                thumbnailPreview.style.display = "none";
-            });
-
-            container.appendChild(clone);
-        });
-    }
-
-    function applyFilter() {
-        let filteredProjects = projects_preview;
-
-        if (currentFilter !== "All") {
-            filteredProjects = projects_preview.filter(p => p[3].includes(currentFilter));
+// Global Navigation Initalisation
+function initGlobalNav() {
+    const topNav = document.getElementById("top-nav");
+    if (!topNav) return;
+    
+    let lastScrollY = window.scrollY;
+    const topThreshold = 120;
+    
+    function updateNavVisibility() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > lastScrollY && currentScrollY > topThreshold) { 
+            topNav.classList.add("nav-hidden");
+        } else if (currentScrollY < lastScrollY){
+            topNav.classList.remove("nav-hidden");
         }
-
-        renderProjects(filteredProjects);
+        
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
     }
-
-    function setupTagFilters() {
-        // Use flatMap to get all tags from all projects into a single array
-        const allTags = projects_preview.flatMap(p => p[3]);
-        const uniqueTags = ["All", ...new Set(allTags)];
-
-        uniqueTags.forEach(tag => {
-            const button = document.createElement("button");
-            button.textContent = tag;
-            if (tag === "All") button.classList.add("active");
-
-            button.addEventListener("click", () => {
-                currentFilter = tag;
-                tagFiltersContainer.querySelectorAll("button").forEach(btn => btn.classList.remove('active'));
-                button.classList.add("active");
-                applyFilter();
+       
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateNavVisibility();
+                ticking = false;
             });
-            tagFiltersContainer.appendChild(button);
-        });
-    }
-
-    setupTagFilters();
-    applyFilter();
-
-    window.addEventListener("mousemove", (e) => {
-        thumbnailPreview.style.left = e.clientX + "px";
-        thumbnailPreview.style.top = e.clientY + "px";
+            ticking = true;
+        }
     });
-});
+    
+    updateNavVisibility();
+}
 
+function moveGradient(event) {
+    const winWidth = window.innerWidth;
+    const winHeight = window.innerHeight;
+    
+    const mouseX = Math.round((event.pageX / winWidth) * 100);
+    const mouseY = Math.round((event.pageY / winHeight) * 100);
+    
+    const background = document.getElementById("grain-background");
+    if (background) {
+        background.style.setProperty("--mouse-x", `${mouseX}%`)
+        background.style.setProperty("--mouse-y", `${mouseY}%`)
+    }
+}
+
+// Page Specific Module 
+async function loadPageModule() {
+    const pageId = document.body.id;
+    
+    switch (pageId) {
+        case "page-project-list":
+            const projectListModule = await import("./page-project-list.js");
+            projectListModule.initProjectList(projects_preview);
+            break;
+        
+        case "page-project-detail":
+            const projectDetailModule = await import("./page-project-detail.js");
+            projectDetailModule.initProjectDetail();
+            break;
+    }
+}
+
+// Run Everything
+document.addEventListener("DOMContentLoaded", () => {
+    initGlobalNav();
+    loadPageModule(); 
+    window.addEventListener("mousemove", moveGradient);
+});

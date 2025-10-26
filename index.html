@@ -2,19 +2,25 @@
 <html lang="en-gb">
 <head>
     <meta charset="utf-8">
-    <title> YS </title> <!--Website Title-->
+    <title> Yujeong S </title> <!--Website Title-->
+    <!-- ADD favicon -->
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="js/main.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 
-<body>
+<body id="page-home">
+    <div id="grain-background"></div>
     <header>
-        <nav id="top-nav"> 
-            <a href="index.html">home</a>
+        <nav id="top-nav" class="glass"> 
+            <a href="index.html">
+                <svg class="main-logo">
+                    <use href="/assets/svg/main-logo.svg"></use>
+                </svg>
+            </a>
             <div id="left-nav">
-                <a href="index.html">Dashboard</a>
-                <a href="projects.html">Projects</a> 
+                <a href="index.html" class="regular">About</a> 
+                <a href="projects.html" class="regular">Projects</a> 
             </div>
         </nav>
     </header>
@@ -34,17 +40,17 @@
                         backDelay: 1000,
                         loop: true,
                         loopCount: 1,
-                        smartBackspace: true,
+                        smartBackspace: true
                     });
                 </script>
             </div>
             <div id="icons-container" class="hflex">
                 <a class="icon-block vflex">
-                    <div class="icon-image"></div>
+                    <div class="icon-image glass"></div>
                     <div class="icon-caption">Projects</div>
                 </a>
                 <div class="icon-block vflex">
-                    <div id="contact-grid" class="icon-image">
+                    <div id="contact-grid" class="icon-image glass">
                         <a href="mailto:yujeong.seo22@imperial.ac.uk" class="contact-icon">
                             <svg class="contact-icon-logo">
                                 <use href="/assets/svg/contact-mail.svg"></use>

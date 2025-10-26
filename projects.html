@@ -7,19 +7,19 @@
     <script type="module" src="js/main.js"></script>
 </head>
 
-<body> 
+<body id="page-project-list"> 
+    <div id="grain-background"></div>
     <header>
-        <nav id="top-nav"> 
+        <nav id="top-nav" class="glass"> 
             <a href="index.html">home</a>
             <div id="left-nav">
-                <a href="index.html">Dashboard</a>
                 <a href="projects.html">Projects</a>
             </div>
         </nav>
     </header>
     
     <main id="main-wrapper">
-        <div id="project-wrapper" class="vflex">
+        <div id="project-wrapper" class="vflex glass">
             <h2 class="page-header bold">Projects</h2>
             <div id="tag-filters" class="hflex cap-text"></div>
             
@@ -31,17 +31,17 @@
                     <div class="project-block">
                         <div class="project-block-left">
                             <div class="project-color"></div>
-                            <div class="project-name subtitle-text"></div>
+                            <div class="temp-flex">
+                                <div class="project-name subtitle-text"></div>
+                                <div class="project-tag-container cap-text hflex"></div>
+                            </div>
                         </div>
                         <div class="project-block-right">   
-                            <div class="project-tag-container hflex cap-text"></div>
-                            <div class="project-link">></div> <!-- arrow instead of period -->
+                            <div class="thumbnail-preview"></div>
                         </div>
                     </div>
                 </a>
             </template>
-            
-            <div id="thumbnail-preview"></div>
         </div>
     </main>
 </body>
