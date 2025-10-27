@@ -179,7 +179,7 @@ h1, h2, h3, h4, h5, h6, p {
 .light {font-weight: 240;}
 
 .hero-header {
-    font-size: calc(3rem + 2vw);
+    font-size: calc(2.8rem + 2vw);
     text-align: center;
     line-height: 140%;
 }
