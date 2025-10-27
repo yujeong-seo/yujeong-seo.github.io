@@ -1,15 +1,70 @@
 // Project List
 const projects_preview = [
-    ["#da6022", "My Gathering Record, Namo", "projects/temp_thumbnail.jpg", ["UI/UX", "Branding"], "namo"],
-    ["#f3593f", "Cooking Assistant, SAVRR", "projects/temp_thumbnail.jpg", ["UI/UX"], "savrr"],
-    ["#0c8c84", "Logical Cycling, Cyclogic", "projects/temp_thumbnail.jpg", ["UI/UX"], "cyclogic"],
-    ["#f4e116", "SkillGrip", "projects/temp_thumbnail.jpg", ["Product", "Coding"], "skillgrip"],
-    ["#5081b3", "Heta Architects Website Renewal", "projects/temp_thumbnail.jpg", ["Web", "Branding"], "temp"],
-    ["#16274a", "H3 Investments Branding", "projects/temp_thumbnail.jpg", ["Branding"], "temp"],
-    ["#dadada", "Portfolio Website", "projects/temp_thumbnail.jpg", ["Web", "Coding"], "temp"],
-    ["#17793d", "Lilou, the Dog", "projects/temp_thumbnail.jpg", ["Product", "Coding"], "gizmo-lilou"],
-    ["#253054", "Elenect Web Game", "projects/temp_thumbnail.jpg", ["Web", "Coding"], "elenect"]
+    {
+        color: "#da6022",
+        name: "My Gathering Record, Namo",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["UI/UX", "Branding"],
+        slug: "namo"
+    },
+    {
+        color: "#f3593f",
+        name: "Cooking Assistant, SAVRR",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["UI/UX"],
+        slug: "savrr"
+    },
+    {
+        color: "#0c8c84",
+        name: "Logical Cycling, Cyclogic",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["UI/UX"],
+        slug: "cyclogic"
+    },
+    {
+        color: "#f4e116",
+        name: "SkillGrip",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Product", "Coding"],
+        slug: "skillgrip"
+    },
+    {
+        color: "#5081b3",
+        name: "Heta Architects Website Renewal",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Web", "Branding"],
+        slug: "temp"
+    },
+    {
+        color: "#16274a",
+        name: "H3 Investments Branding",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Branding"],
+        slug: "temp"
+    },
+    {
+        color: "#dadada",
+        name: "Portfolio Website",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Web", "Coding"],
+        slug: "temp"
+    },
+    {
+        color: "#17793d",
+        name: "Lilou, the Dog",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Product", "Coding"],
+        slug: "gizmo-lilou"
+    },
+    {
+        color: "#253054",
+        name: "Elenect Web Game",
+        thumbnail: "projects/temp_thumbnail.jpg",
+        tag: ["Web", "Coding"],
+        slug: "elenect"
+    }
 ];
+
 
 // Global Navigation Initalisation
 function initGlobalNav() {

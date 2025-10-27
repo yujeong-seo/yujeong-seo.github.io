@@ -10,9 +10,6 @@ export function initProjectList(projects_preview) {
     const tagFiltersContainer = document.getElementById("tag-filters");
     const emptyState = document.getElementById("empty-state");
     
-    const viewToggleBtn = document.getElementById("view-toggle-btn");
-    
-    let isGalleryView = false;
     let currentFilter = "All";
 
     function renderProjects(projectsToRender) {
@@ -21,11 +18,11 @@ export function initProjectList(projects_preview) {
 
         projectsToRender.forEach(project => {
             const clone = document.importNode(template.content, true);
-            const color = project[0];
-            const name = project[1];
-            const thumbnail = project[2];
-            const tags = project[3];
-            const slug = project[4];
+            const color = project.color;
+            const name = project.name;
+            const thumbnail = project.thumbnail;
+            const tags = project.tag;
+            const slug = project.slug;
 
             clone.querySelector(".project-name").textContent = name;
             clone.querySelector(".project-link-wrapper").href = `/projects/${slug}.html`;
@@ -48,33 +45,13 @@ export function initProjectList(projects_preview) {
             
             projectBlock.addEventListener("mouseover", () => {
                 document.documentElement.style.setProperty("--gradient-main", color);
-                if (!isGalleryView) {
-                    thumbnailPreview.style.display = "block";
-                    tagsContainer.style.display = "flex";
-                    setTimeout(() => {
-                        thumbnailPreview.classList.add("full");
-                    }, 10);
-                }
+                thumbnailPreview.classList.add("full");
             });
             projectBlock.addEventListener("mouseleave", () => {
                 document.documentElement.style.setProperty("--gradient-main", "#50535a");
-                if (!isGalleryView) {
-                    thumbnailPreview.classList.remove("full");
-                    tagsContainer.style.display = "none";
-                    setTimeout(() => {
-                        thumbnailPreview.style.display = "none";
-                    }, 200);
-                }
+                thumbnailPreview.classList.remove("full");
             });
             
-            if (isGalleryView) {
-                thumbnailPreview.style.display = "block";
-                tagsContainer.style.display = "flex";
-                setTimeout(() => {
-                        thumbnailPreview.classList.add("full");
-                }, 10);
-            }
-
             container.appendChild(clone);
         });
     }
@@ -83,7 +60,7 @@ export function initProjectList(projects_preview) {
         let filteredProjects = projects_preview;
 
         if (currentFilter !== "All") {
-            filteredProjects = projects_preview.filter(p => p[3].includes(currentFilter));
+            filteredProjects = projects_preview.filter(p => p.tag.includes(currentFilter));
         }
 
         renderProjects(filteredProjects);
@@ -91,7 +68,7 @@ export function initProjectList(projects_preview) {
 
     function setupTagFilters() {
         // Use flatMap to get all tags from all projects into a single array
-        const allTags = projects_preview.flatMap(p => p[3]);
+        const allTags = projects_preview.flatMap(p => p.tag);
         const uniqueTags = ["All", ...new Set(allTags)];
 
         uniqueTags.forEach(tag => {
@@ -108,19 +85,7 @@ export function initProjectList(projects_preview) {
             tagFiltersContainer.appendChild(button);
         });
     }
-    
-    function setupViewToggle() {
-        if (!viewToggleBtn) return;
-        
-        viewToggleBtn.addEventListener("click", () => {
-            isGalleryView = !isGalleryView
-            container.classList.toggle("gallery-view", isGalleryView);
-            viewToggleBtn.textContent = isGalleryView ? "List" : "Gallery";
-            applyFilter();
-        })
-    }
 
     setupTagFilters();
-    setupViewToggle();
     applyFilter();
 }
