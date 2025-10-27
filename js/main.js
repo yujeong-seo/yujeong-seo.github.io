@@ -45,20 +45,6 @@ function initGlobalNav() {
     updateNavVisibility();
 }
 
-function moveGradient(event) {
-    const winWidth = window.innerWidth;
-    const winHeight = window.innerHeight;
-    
-    const mouseX = Math.round((event.pageX / winWidth) * 100);
-    const mouseY = Math.round((event.pageY / winHeight) * 100);
-    
-    const background = document.getElementById("grain-background");
-    if (background) {
-        background.style.setProperty("--mouse-x", `${mouseX}%`)
-        background.style.setProperty("--mouse-y", `${mouseY}%`)
-    }
-}
-
 // Page Specific Module 
 async function loadPageModule() {
     const pageId = document.body.id;
@@ -80,5 +66,4 @@ async function loadPageModule() {
 document.addEventListener("DOMContentLoaded", () => {
     initGlobalNav();
     loadPageModule(); 
-    window.addEventListener("mousemove", moveGradient);
 });

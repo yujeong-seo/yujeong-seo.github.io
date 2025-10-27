@@ -21,7 +21,12 @@
     <main id="main-wrapper">
         <div id="project-wrapper" class="vflex glass">
             <h2 class="page-header bold">Projects</h2>
-            <div id="tag-filters" class="hflex cap-text"></div>
+            <div class="hspread">
+                <div id="tag-filters" class="hflex cap-text"></div>
+                <div id="view-controls">
+                    <button id="view-toggle-btn">Gallery</button>
+                </div>
+            </div>
             
             <div id="project-list-container"></div>
             <div id="empty-state"> No projects found. </div>
@@ -31,7 +36,7 @@
                     <div class="project-block">
                         <div class="project-block-left">
                             <div class="project-color"></div>
-                            <div class="temp-flex">
+                            <div class="vspread">
                                 <div class="project-name subtitle-text"></div>
                                 <div class="project-tag-container cap-text hflex"></div>
                             </div>

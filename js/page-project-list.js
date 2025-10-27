@@ -10,6 +10,9 @@ export function initProjectList(projects_preview) {
     const tagFiltersContainer = document.getElementById("tag-filters");
     const emptyState = document.getElementById("empty-state");
     
+    const viewToggleBtn = document.getElementById("view-toggle-btn");
+    
+    let isGalleryView = false;
     let currentFilter = "All";
 
     function renderProjects(projectsToRender) {
@@ -31,9 +34,7 @@ export function initProjectList(projects_preview) {
             const thumbnailPreview = clone.querySelector(".thumbnail-preview");
             thumbnailPreview.style.backgroundImage = `url('${thumbnail}')`;;
 
-
             // Dynamically create and add tag elements
-            
             const tagsContainer = clone.querySelector(".project-tag-container");
             tags.forEach(tagText => {
                 const tagElement = document.createElement("div");
@@ -44,22 +45,35 @@ export function initProjectList(projects_preview) {
 
             // Add hover listeners for thumbnail
             const projectBlock = clone.querySelector(".project-block");
+            
             projectBlock.addEventListener("mouseover", () => {
-                thumbnailPreview.style.display = "block";
-                colorBlock.classList.add("hidden");
                 document.documentElement.style.setProperty("--gradient-main", color);
-                tagsContainer.style.display = "flex";
-                setTimeout(() => {
-                    thumbnailPreview.classList.add("full");
-                }, 10);
+                if (!isGalleryView) {
+                    thumbnailPreview.style.display = "block";
+                    tagsContainer.style.display = "flex";
+                    setTimeout(() => {
+                        thumbnailPreview.classList.add("full");
+                    }, 10);
+                }
             });
             projectBlock.addEventListener("mouseleave", () => {
-                thumbnailPreview.style.display = "none";
-                thumbnailPreview.classList.remove("full");
-                colorBlock.classList.remove("hidden");
                 document.documentElement.style.setProperty("--gradient-main", "#50535a");
-                tagsContainer.style.display = "none";
+                if (!isGalleryView) {
+                    thumbnailPreview.classList.remove("full");
+                    tagsContainer.style.display = "none";
+                    setTimeout(() => {
+                        thumbnailPreview.style.display = "none";
+                    }, 200);
+                }
             });
+            
+            if (isGalleryView) {
+                thumbnailPreview.style.display = "block";
+                tagsContainer.style.display = "flex";
+                setTimeout(() => {
+                        thumbnailPreview.classList.add("full");
+                }, 10);
+            }
 
             container.appendChild(clone);
         });
@@ -94,7 +108,19 @@ export function initProjectList(projects_preview) {
             tagFiltersContainer.appendChild(button);
         });
     }
+    
+    function setupViewToggle() {
+        if (!viewToggleBtn) return;
+        
+        viewToggleBtn.addEventListener("click", () => {
+            isGalleryView = !isGalleryView
+            container.classList.toggle("gallery-view", isGalleryView);
+            viewToggleBtn.textContent = isGalleryView ? "List" : "Gallery";
+            applyFilter();
+        })
+    }
 
     setupTagFilters();
+    setupViewToggle();
     applyFilter();
 }

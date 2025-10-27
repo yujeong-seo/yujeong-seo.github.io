@@ -24,6 +24,7 @@
     --gap-lg: 2rem;
     --gap-xl: 2.5rem;
     
+    --radius-xs: 0.5rem;
     --radius-sm: 1rem;
     --radius-md: 1.5rem;
     --radius-lg: 2rem;
@@ -75,13 +76,13 @@ BACKGROUND & STYLES
     filter: contrast(120%) brightness(120%);
     background: 
     url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-	radial-gradient(
-        circle at var(--mouse-x) var(--mouse-y), 
-        rgba(159, 163, 172, 0) 0%, 
-        rgba(0, 0, 0, 0) 80%),
     radial-gradient(
         circle at 50% 50%, 
-        rgb(255, 255, 255, 0.2) 0%, 
+        rgb(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 0)),
+    radial-gradient(
+        circle at 0% 100%, 
+        rgba(48, 114, 120, 0.2) 0%, 
         rgba(255, 255, 255, 0) 100%),
     radial-gradient(
         circle at 100% 100%,
@@ -89,7 +90,7 @@ BACKGROUND & STYLES
         rgba(255, 255, 255, 0) 80%),
     linear-gradient(
         to bottom right,
-        rgba(122, 122, 133, 0.8) 0%, 
+        rgba(138, 138, 155, 0.8) 0%, 
         rgba(255, 255, 255, 0.4) 100%), 
     var(--main-background);
     background-blend-mode: overlay, normal, normal, overlay, normal, normal;
@@ -133,6 +134,25 @@ BACKGROUND & STYLES
     color: transparent;
     background: linear-gradient(#0a0a0a 60%, #0a0a0a40);
     background-clip: text;
+}
+
+.glass {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(4px);
+}
+
+.glass::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    border-radius: inherit;
+    border: 1.5px solid transparent;
+    background: linear-gradient(to bottom right, #cbccce70, #fafafa4e) border-box;
+    mask: linear-gradient(black, black) border-box,
+    linear-gradient(black, black) padding-box;
+    mask-composite: subtract
 }
 
 
@@ -193,6 +213,19 @@ LAYOUT
     gap: var(--gap-lg);
 }
 
+.hspread {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.vspread {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-between;
+}
+
 
 /*
 TOP NAVIGATION 
@@ -251,7 +284,10 @@ header {
 }
 
 
-/* HOME Main */
+/*
+MAIN WRAPPERS
+*/
+
 #main-wrapper {
     top: var(--nav-top);
     width: 100%;
@@ -272,11 +308,36 @@ header {
     width: 100%;
     max-width: 1200px;
     height: 100%;
-    padding: 40px 0px;
+    padding: var(--gap-lg) 0px;
     align-items: center; 
     justify-content: center;
     text-align: center;
 }
+
+#project-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    padding: var(--gap-lg);
+    background-color: var(--block-background);
+    border-radius: var(--radius-md);
+}
+
+#detail-wrapper {
+    margin-top: 90vh;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: flex;
+    padding: var(--padding-lg);
+    gap: var(--gap-sm);
+    flex-direction: column;
+    background-color: var(--block-background);
+    border-radius: var(--radius-md);
+}
+
+
+/* HOME Main */
 
 #text-container {
     display: flex;
@@ -312,7 +373,6 @@ header {
     height: 30vw;
     max-height: 180px;
     border-radius: 20px;
-    background-color: #eaeaea;
 }
 
 #contact-grid {
@@ -329,12 +389,17 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: opacity 0.4s ease;
 }
 
 .contact-icon-logo {
     width: 24px;
     height: 24px;
     color: #5a5a5a;
+}
+
+.contact-icon:hover {
+    opacity: 0.7;
 }
 
 #footer {
@@ -348,24 +413,10 @@ header {
 }
 
 /* Projects List */
-
-#project-wrapper {
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    padding: 20px;
-    background-color: var(--block-background);
-    border-radius: var(--radius-md);
-}
-
-.project-block {
-    width: 100%;
-    height: auto;
-    padding: 16px 16px;
+#project-list-container {
     display: flex;
-    flex-direction: row;
-    align-items: start;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: var(--gap-sm);
 }
 
 .project-link-wrapper {
@@ -373,10 +424,21 @@ header {
     text-decoration: none;
 }
 
-.project-link-wrapper :hover {
+.project-block {
+    width: 100%;
+    height: auto;
+    padding: var(--gap-md) var(--gap-md);
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    
+    transition: all 0.4s ease;
+}
+
+.project-link-wrapper:hover .project-block {
     border: none;
-    background-color: #ffffff92;
-    backdrop-filter: blur(2px);
+    background: #0a0a0a0a;
     border-radius: 12px;
 }
 
@@ -384,6 +446,7 @@ header {
     display: flex;
     flex-direction: row;
     gap: var(--gap-md);
+    align-self: stretch;
 }
 
 .project-block-right {
@@ -398,26 +461,11 @@ header {
     min-width: 14px;
     height: 14px;
     margin-top: 5px;
-    
-    transition: all 0.3s ease;
-}
-
-.project-color.hidden {
-    width: 0px;
-    min-width: 0px;
-    transform: translateX(-50%);
 }
 
 .project-tag-container {
     display: none;
     gap: 8px;
-}
-
-.temp-flex {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    justify-content: space-between;
 }
 
 #tag-filters {
@@ -443,12 +491,11 @@ button, .project-tag{
     position: relative; 
     display: none;
     opacity: 0;
-    width: 0px; 
-    height: 200px;
+    width: 400px; 
+    height: 0px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     pointer-events: none; 
     z-index: 200;
     
@@ -456,7 +503,7 @@ button, .project-tag{
 }
 
 .thumbnail-preview.full {
-    width: 350px;
+    height: 200px;
     opacity: 1;
 }
 
@@ -468,21 +515,12 @@ button, .project-tag{
     }
 }
 
+#project-list-container:has(.project-block:hover) .project-block:not(:hover) {
+    filter: blur(2px);
+    opacity: 0.8;
+}
 
 /* Project Page Elements */
-
-#detail-wrapper {
-    margin-top: 90vh;
-    width: 100%;
-    max-width: 1200px;
-    height: auto;
-    display: flex;
-    padding: var(--padding-lg);
-    gap: var(--gap-sm);
-    flex-direction: column;
-    background-color: var(--block-background);
-    border-radius: var(--radius-md);
-}
 
 .project-row {
     display: grid;
@@ -507,9 +545,12 @@ button, .project-tag{
 }
 
 .problem-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
     width: 100%;
-    padding: 20px;
-    border: #02021a solid 1px;
+    padding: var(--padding-sm);
+    border: #87878762 solid 1.5px;
     border-radius: var(--radius-sm);
 }
 
@@ -521,6 +562,9 @@ button, .project-tag{
 }
 
 .project-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
     width: 100%;
     min-width: 0;
 }
@@ -536,9 +580,11 @@ button, .project-tag{
 .swiper-slide {
     width: 100%;
     height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.swiper-img {
+.project-img {
     width: 100%;
     height: calc(75vw * 0.6);
     max-height: 600px;
@@ -546,6 +592,7 @@ button, .project-tag{
     background-size: cover;
     background-position: center;
     border-radius: var(--radius-sm);
+    margin-bottom: 16px;
 }
 
 .custom-pagination {
@@ -555,30 +602,33 @@ button, .project-tag{
 
 .my-bullet {
     width: 100%;
-    font-size: 16px;
-    padding: 0 0 0 20;
+    font-size: 1rem;
+    padding: var(--gap-sm) var(--gap-sm) var(--gap-sm) var(--padding-sm);
     text-align: left;
+    border: none;
+    transition: all 0.4s ease;
+    
+    display: flex;
+    align-items: center;
+    color: #ababab;
+}
+
+.my-bullet::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: currentColor;
+    margin-right: var(--gap-sm);
+    flex-shrink: 0;
+}
+
+.my-bullet:hover {
+    background: #e2e2e2;
+    cursor: pointer;
 }
 
 .my-bullet-active {
     background: #c9c9c9;
-}
-
-.glass {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 100%);
-    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(4px);
-}
-
-.glass::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    border-radius: inherit;
-    border: 1.5px solid transparent;
-    background: linear-gradient(to bottom right, #cbccce70, #fafafa4e) border-box;
-    mask: linear-gradient(black, black) border-box,
-    linear-gradient(black, black) padding-box;
-    mask-composite: subtract
+    color: var(--primary-text);
 }
