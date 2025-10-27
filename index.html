@@ -10,7 +10,9 @@
 </head>
 
 <body id="page-home">
-    <div id="grain-background"></div>
+    <div id="hero-background">
+        <div id="grain-background"></div>
+    </div>
     <header>
         <nav id="top-nav" class="glass"> 
             <a href="index.html">
@@ -19,7 +21,7 @@
                 </svg>
             </a>
             <div id="left-nav">
-                <a href="index.html" class="regular">Archive</a> 
+                <!-- Add left nav elements -->
                 <a href="projects.html" class="regular">Projects</a> 
             </div>
         </nav>
@@ -45,10 +47,15 @@
                 </script>
             </div>
             <div id="icons-container" class="hflex">
-                <a class="icon-block vflex">
-                    <div class="icon-image glass"></div>
-                    <div class="icon-caption">Projects</div>
-                </a>
+                <div class="icon-block vflex">
+                    <a class="icon-image" href="projects.html">
+                        <div class="folder-bottom glass"></div>
+                        <div class="folder-paper glass"></div>
+                        <div class="folder-paper glass"></div>
+                        <div class="folder-top glass"></div>
+                    </a>
+                    <a class="icon-caption" href="projects.html">Projects</a>
+                </div>
                 <div class="icon-block vflex">
                     <div id="contact-grid" class="icon-image glass">
                         <a href="mailto:yujeong.seo22@imperial.ac.uk" class="contact-icon">

@@ -18,14 +18,20 @@
         <h1 id="project-name" class="hero-header white-fade">
             <span class="regular"> My Gathering Record,</span> Namo
         </h1>
+        <div id="grain-background"></div>
     </div>
-    <div id="grain-background"></div>
+    
     
     <header>
         <nav id="top-nav" class="glass"> 
-            <a href="../index.html">home</a>
+            <a href="../index.html">
+                <svg class="main-logo">
+                    <use href="/assets/svg/main-logo.svg"></use>
+                </svg>
+            </a>
             <div id="left-nav">
-                <a href="../projects.html">Projects</a>
+                <!-- Add left nav elements -->
+                <a href="../projects.html" class="regular">Projects</a> 
             </div>
         </nav>
     </header>
@@ -34,17 +40,21 @@
         <main id="detail-wrapper" class="glass">
             <div class="project-row">
                 <!-- Information Block -->
-                <div>
+                <div class="vflex">
                     <div class="project-tag-container hflex">
                         <div class="project-tag">UI/UX</div>
                         <div class="project-tag">Branding</div>
                     </div>
-                    <ul>
-                        <li> Period: 2022-2025</li>
-                        <li> Extracurricular </li>
-                        <li> Github </li>
-                        <li> Blog </li>
-                    </ul>
+                    <div class="detail-info">
+                        <p> Period: 2022-2025</p>
+                        <p> Extracurricular </p>
+                        <a class="arrow-btn" target="_blank" data-text="Github" href="https://github.com/Namo-log">
+                            <span>Github</span>
+                        </a>
+                        <a class="arrow-btn" target="_blank" data-text="Blog (KR)" href="https://namo-log.vercel.app/">
+                            <span>Blog (KR)</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Subtitle -->
@@ -69,7 +79,9 @@
             <div class="project-row">
                 <h4 class="title-text bold"> Problem </h4>
                 <div class="project-content">
-                    Three main issues include -
+                    <p class="body-text pret">
+                        Three main issues include -
+                    </p>
                     <div class="problem-wrapper">
                         <div class="problem-block"> 
                             <span class="bold"> Mismatch Between My Diary and Calendar </span><br>
@@ -163,7 +175,9 @@
         <!-- Block for contact -->
 
         <footer id="footer">
-            <p> London, Seoul </p>
+            <a class="arrow-to-top" href="#top">
+                <span>Back to Top</span>
+            </a>
             <p> © 2025, Yujeong Seo </p>
         </footer>
     </section>

@@ -8,18 +8,25 @@
 </head>
 
 <body id="page-project-list"> 
-    <div id="grain-background"></div>
+    <div id="hero-background">
+        <div id="grain-background"></div>
+    </div>
     <header>
         <nav id="top-nav" class="glass"> 
-            <a href="index.html">home</a>
+            <a href="index.html">
+                <svg class="main-logo">
+                    <use href="/assets/svg/main-logo.svg"></use>
+                </svg>
+            </a>
             <div id="left-nav">
-                <a href="projects.html">Projects</a>
+                <!-- Add left nav elements -->
+                <a href="projects.html" class="regular">Projects</a> 
             </div>
         </nav>
     </header>
     
-    <main id="main-wrapper">
-        <div id="project-wrapper" class="vflex glass">
+    <section id="main-wrapper">
+        <main id="project-wrapper" class="vflex glass">
             <h2 class="page-header bold">Projects</h2>
             <div class="hspread">
                 <div id="tag-filters" class="hflex cap-text"></div>
@@ -34,7 +41,7 @@
                     <div class="project-block">
                         <div class="project-block-left">
                             <div class="project-color"></div>
-                            <div class="vspread">
+                            <div class="project-name-tag">
                                 <div class="project-name subtitle-text"></div>
                                 <div class="project-tag-container cap-text hflex"></div>
                             </div>
@@ -45,7 +52,15 @@
                     </div>
                 </a>
             </template>
-        </div>
-    </main>
+        </main>
+    
+        <footer id="footer">
+            <a class="arrow-to-top" href="#top">
+                <span>Back to Top</span>
+            </a>
+            <p> © 2025, Yujeong Seo </p>
+        </footer>
+    </section>
+    
 </body>
 </html>
