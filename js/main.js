@@ -100,6 +100,13 @@ function initGlobalNav() {
     updateNavVisibility();
 }
 
+function applyProjectColor(currentSlug) {
+    const project = projects_preview.find(p => p.slug === currentSlug);
+    if (project) {
+        document.documentElement.style.setProperty("--gradient-main", project.color);
+    } else return;
+}
+
 // Page Specific Module 
 async function loadPageModule() {
     const pageId = document.body.id;
@@ -113,6 +120,15 @@ async function loadPageModule() {
         case "page-project-detail":
             const projectDetailModule = await import("./page-project-detail.js");
             projectDetailModule.initProjectDetail();
+            
+            const path = window.location.pathname;
+            const parts = path.split("/");
+            const filename = parts[parts.length - 1];
+            const slug = filename.split(".")[0];
+            if (slug) {
+                applyProjectColor(slug);
+            }
+            
             break;
     }
 }
