@@ -5,6 +5,7 @@ Handles the hero background scroll animation
 
 export function initProjectDetail() {
     const bgImg = document.getElementById("background-img");
+    const bgOverlay = document.getElementById("background-overlay");
     const projectName = document.getElementById("project-name");
     
     if (!bgImg || !projectName) return;
@@ -13,18 +14,15 @@ export function initProjectDetail() {
         const scrollY = window.scrollY;
         const winHeight = window.innerHeight;
         
-        // Background Image Animation
-        let bgProgress = Math.min(1, Math.max(0, scrollY / winHeight));
-        bgImg.style.opacity = 1 - bgProgress;
-        
-        // Project Name Animation 
-        const fadeStart = winHeight * 0.10;
-        const fadeEnd = winHeight * 0.90;
+        const fadeStart = winHeight * 0;
+        const fadeEnd = winHeight * 0.80;
         const fadeRange = fadeEnd - fadeStart;
-        let nameProgress = Math.min(1, Math.max(0, (scrollY - fadeStart) / fadeRange));
+        let fadeProgress = Math.min(1, Math.max(0, (scrollY - fadeStart) / fadeRange));
+        bgImg.style.opacity = 1 - fadeProgress;
+        bgOverlay.style.opacity = 1 - fadeProgress;
         
-        projectName.style.opacity = 1 - nameProgress;
-        const distanceUp = -200 * nameProgress;
+        projectName.style.opacity = 1 - fadeProgress;
+        const distanceUp = -300 * fadeProgress;
         projectName.style.transform = `translateY(${distanceUp}px)`;
     }
     

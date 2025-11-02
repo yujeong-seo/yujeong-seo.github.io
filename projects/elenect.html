@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title> Yujeong Seo | Elenect </title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="module" src="../js/main.js"></script>
+</head>
+
+<body id="page-project-detail"> 
+    <!-- Hero Background Wrapper -->
+    <div id="background">
+        <img id="background-img" src="/projects/images/elenect/elenect-main.jpg">
+        <div id="background-overlay"></div>
+        <h1 id="project-name" class="hero-header white-fade">
+            <span class="regular"> Web Game </span>Elenect
+        </h1>
+    </div>
+    
+    <header>
+        <nav id="top-nav" class="glass"> 
+            <a href="../index.html" class="main-logo"></a>
+            <div id="left-nav">
+                <!-- Add left nav elements -->
+                <a href="../projects.html" class="regular">Projects</a> 
+            </div>
+        </nav>
+    </header>
+    
+    <section id="main-wrapper">
+        <main id="detail-wrapper" class="glass">
+            <!-- Information Block -->
+            <div class="project-row">
+                <div class="vflex">
+                    <div class="project-tag-container hflex">
+                        <div class="project-tag">Web</div>
+                        <div class="project-tag">Coding</div>
+                    </div>
+                    <div class="detail-info">
+                        <p> Jun 2023</p>
+                        <p> Individual </p>
+                        <p> 'Computing Applications' Module </p>
+                        <a class="arrow-btn" target="_blank" data-text="Github" href="https://github.com/yujeong-seo/elenect-web-game">
+                            <span>Github</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Subtitle -->
+                <h4 class="section-header light">
+                    <b> How might we translate classic board mechanics into a browser-based system? </b>
+                    Developing a two-player board-based mechanism using JavaScript.
+                </h4>
+            </div>
+            
+            <div class="hline"></div>
+            
+            <!-- Content: Overview -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Overview </h4>
+                <p class="body-text pret">
+                    Elenect is a two-player, board-based web game developed using Javascript, HTML, and CSS.
+                    <br><br>
+                    The project reimagines a board-based game that connects all the dots as two-player implementation. 
+                    The game is progressed by each players placing the tokens on the grid, which must be connected to the previous token. Each move can strategically block the opponent's path, creating a simple yet competitive logic dynamic.
+                    <br><br>
+                    Within the minimal interface, the thematic contrast of <b>Fire vs Water</b> was introducted to bring narrative character.
+                    The concept influenced the visual palette of contrasting colours, iconography and thematic phrases to make the game more engaging.
+                </p>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-30" src="/projects/images/elenect/elenect-rule.jpg">
+                <div class="project-row test">
+                    <span class="bold gray"> RULES AND SYSTEM LOGIC </span>
+                    <span class="pret light">
+                        Core mechanics (dotconnect.js) enables the positioning of tokens by checking the availability of adjacent cells.
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-60" src="/projects/images/elenect/elenect-implement.jpg">
+                <div class="project-row test">
+                    <span class="bold gray"> TWO-PLAYER IMPLEMENTATION </span>
+                    <span class="pret light">
+                        The game logic were implemented with visual assets in main.js for two-players play.
+                        <ul>
+                            <li class="pret light"> Alternating turns: each player making one move at a time </li>
+                            <li class="pret light"> Detecting the win and lose </li> 
+                            <li class="pret light"> Total scoring board and repetition of whole process </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-40" src="/projects/images/elenect/elenect-api.png">
+                <div class="project-row test">
+                    <span class="bold gray"> TESTING AND DOCUMENTATION </span>
+                    <span class="pret light">
+                        Conducted Mocha testing to validate the core logic and boundary conditions. 
+                        Also, lightweight API documentation was written to outline functions and variables.
+                    </span>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Block for contact -->
+
+        <footer id="footer">
+            <a class="arrow-to-top" href="#top">
+                <span>Back to Top</span>
+            </a>
+            <p> © 2025, Yujeong Seo </p>
+        </footer>
+    </section>
+    
+    <div id="mycursor"></div>
+</body>
+</html>

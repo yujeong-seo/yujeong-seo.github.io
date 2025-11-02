@@ -1,0 +1,188 @@
+<!--
+Temporary Template Page with Swiper.js
+-->
+
+<!doctype html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title> YS </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="module" src="../js/main.js"></script>
+    
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+</head>
+
+<body id="page-project-detail"> 
+    <!-- Hero Background Wrapper -->
+    <div id="hero-background">
+        <div id="background-img"></div>
+        <h1 id="project-name" class="hero-header white-fade">
+            <span class="regular"> My Gathering Record,</span> Namo
+        </h1>
+        <div id="grain-background"></div>
+    </div>
+    
+    
+    <header>
+        <!-- Top Navigation Bar -->
+    </header>
+    
+    <section id="main-wrapper">
+        <main id="detail-wrapper" class="glass">
+            <div class="project-row">
+                <!-- Information Block -->
+                <div class="vflex">
+                    <div class="project-tag-container hflex">
+                        <div class="project-tag">UI/UX</div>
+                        <div class="project-tag">Branding</div>
+                    </div>
+                    <div class="detail-info">
+                        <p> 2022-2025</p>
+                        <p> Extracurricular </p>
+                        <a class="arrow-btn" target="_blank" data-text="Github" href="https://github.com/Namo-log">
+                            <span>Github</span>
+                        </a>
+                        <a class="arrow-btn" target="_blank" data-text="Blog (KR)" href="https://namo-log.vercel.app/">
+                            <span>Blog (KR)</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Subtitle -->
+                <h4 class="section-header light">
+                    <span class="bold"> How might we simplify group scheduling without endless back-and-forth?</span>
+                    Designing a calendar that thinks socially, not individually.
+                </h4>
+            </div>
+            
+            <div class="hline"></div>
+            
+            <!-- Content: Overview -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Overview </h4>
+                <p class="body-text pret">
+                    Group meetups often begin with message overload: 
+                    endless back-and-forths to find one shared time. 
+                    Namo reimagines this process by developing a shared calendar mobile application 
+                    that simplifies group scheduling and event recording. 
+                    <br><br>
+                    I joined the project from the early MVP stage, contributing across branding, 
+                    UX flow, and full mobile interface design. The initial version focused on basic 
+                    record and shared calendar features, later expanding to include friend lists, 
+                    improved scheduling logic, and activity blocks.
+                </p>
+            </div>
+            
+            <!-- Content: Problem -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Problem </h4>
+                <div class="project-content">
+                    <!-- <p class="body-text pret"></p> -->
+                    <div class="problem-wrapper">
+                        <div class="problem-block"> 
+                            <span class="bold"> Fragmented Scheduling Habits </span><br>
+                            <span class="pret light"> 
+                                Calendar schedules and diary records were disconnected, harder to recall the memory. 
+                            </span>
+                        </div>
+                        <div class="problem-block"> 
+                            <span class="bold"> Overloaded Communication </span><br>
+                            <span class="pret light"> 
+                                Group scheduling required repetitive messages and manual coordination. 
+                            </span>
+                        </div>
+                        <div class="problem-block"> 
+                            <span class="bold"> Lack of Shared Record </span><br>
+                            <span class="pret light"> 
+                                Once a gathering ended, the record easily lose a track, losing valuable context and memories.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content: Swiper -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Process </h4>
+                <div class="project-content">
+                    <div class="custom-pagination hflex"></div>
+                    <div class="myswiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="image ratio-60"></div>
+                                <p class="body-text pret"> 
+                                    Designed a complete flow architecture for mobile group scheduling. 
+                                    The flow ensures users to access key features (schedules, groups) 
+                                    in intuitive and consistent hierarchy.
+                                </p>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image ratio-60"></div>
+                                <p class="body-text pret"> 
+                                    Led the creation of visual identity including logo, colour palette and 
+                                    character assets for in-app and marketing materials. The design embodies 
+                                    the organised yet playful spirit of Namo. 
+                                </p>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="image ratio-60"></div>
+                                <p class="body-text pret"> 
+                                    Built and maintained a Figma design system using components and 
+                                    variables, ensuring visual and interaction consistency across the app.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <script>
+                        var bulletTexts = ["User Flow", "Branding", "Design System"];
+                        var swiper = new Swiper(".myswiper", {
+                            slidersPerView: 1,
+                            loop: true,
+                            spaceBetween: 30,
+                            speed: 650,
+                            effect: "coverflow",
+                            coverflowEffect: {
+                                depth: 50,
+                                rotate: 30,
+                                slideShadows: false
+                            },
+                            pagination: {
+                                el: ".custom-pagination",
+                                bulletClass: "my-bullet",
+                                bulletActiveClass: "my-bullet-active",
+                                clickable: true,
+                                renderBullet: function (index, className) {
+                                    return '<button class="' + className + '">' + bulletTexts[index] + "</button>";
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+             
+            <!-- Content: Non Swiper -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Solution </h4>
+                <div class="project-content">
+                    <div class="image ratio-60"></div>
+                    <p class="body-text pret"> 
+                        Remaining images and description 
+                    </p>
+                </div>
+            </div>
+        </main>
+        
+        <footer id="footer">
+            <a class="arrow-to-top" href="#top">
+                <span>Back to Top</span>
+            </a>
+            <p> © 2025, Yujeong Seo </p>
+        </footer>
+    </section>
+</body>
+</html>

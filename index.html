@@ -3,24 +3,20 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, width=device-width" />
-    <title> YS </title> <!--Website Title-->
-    <!-- ADD favicon -->
+    <title> Yujeong Seo </title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="js/main.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 </head>
 
 <body id="page-home">
-    <div id="hero-background">
-        <div id="grain-background"></div>
-    </div>
+    <!-- Hero Background Wrapper -->
+    <div id="background"></div>
+    
     <header>
         <nav id="top-nav" class="glass"> 
-            <a href="index.html">
-                <svg class="main-logo">
-                    <use href="/assets/svg/main-logo.svg"></use>
-                </svg>
-            </a>
+            <a href="index.html" class="main-logo"></a>
             <div id="left-nav">
                 <!-- Add left nav elements -->
                 <a href="projects.html" class="regular">Projects</a> 
@@ -29,12 +25,15 @@
     </header>
 
     <main id="main-wrapper">
-        <div id="hero-wrapper" class="vflex">
+        <div id="hero-wrapper">
             <div id="text-container">
-                <h1 class="hero-header bold">
+                <h1 class="home-header bold">
                     Design Engineer <br>
                     Yujeong <span id="type-element"></span>
                 </h1>
+                <br>
+                <span class="bold">Hello 👋 I am final year student studying MEng Design Engineering. <br><br>
+                <span class="light">Bridging design, engineering, business, and digital product management, I enjoy being at the forefront of project journey, directly addressing user needs. </span></span>
                 <script>
                     var typed = new Typed('#type-element', {
                         strings:['^500Seo.^1000', 'Structures', 'Synthesises', 'Spreads', 'Seo.'],
@@ -47,7 +46,7 @@
                     });
                 </script>
             </div>
-            <div id="icons-container" class="hflex">
+            <div id="icons-container">
                 <div class="icon-block vflex">
                     <a class="icon-image" href="projects.html">
                         <div class="folder-bottom glass"></div>
@@ -60,24 +59,18 @@
                 <div class="icon-block vflex">
                     <div id="contact-grid" class="icon-image glass">
                         <a href="mailto:yujeong.seo22@imperial.ac.uk" class="contact-icon">
-                            <svg class="contact-icon-logo">
-                                <use href="/assets/svg/contact-mail.svg"></use>
-                            </svg>
+                            <div class="contact-icon-logo mail"></div>
                         </a>
                         <a href="http://linkedin.com/in/yujeongseo03" target="_blank" class="contact-icon">
-                            <svg class="contact-icon-logo">
-                                <use href="/assets/svg/contact-linkedin.svg"></use>
-                            </svg>
+                            <div class="contact-icon-logo linkedin"></div>
                         </a>
-                        <a href="https://github.com/yujeong-seo" target="_blank" class="contact-icon">
-                            <svg class="contact-icon-logo">
-                                <use href="/assets/svg/contact-github.svg"></use>
-                            </svg>
-                        </a>
+                        <!-- <a href="https://github.com/yujeong-seo" target="_blank" class="contact-icon">
+                            <div class="contact-icon-logo github"></div>
+                        </a> -->
                         <a href="https://www.instagram.com/s_yuj_design" target="_blank" class="contact-icon">
-                            <svg class="contact-icon-logo">
-                                <use href="/assets/svg/contact-insta.svg"></use>
-                            </svg>
+                            <div class="contact-icon-logo insta"></div>
+                        </a>
+                        <a href="#" class="contact-icon">
                         </a>
                     </div>
                     <div class="icon-caption">Contacts</div>
@@ -85,6 +78,8 @@
             </div>
         </div>
     </main>
+    
+    <div id="mycursor"></div>
 
 </body>
 </html>

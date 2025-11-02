@@ -3,63 +3,63 @@ const projects_preview = [
     {
         color: "#da6022",
         name: "My Gathering Record, Namo",
-        thumbnail: "projects/temp_thumbnail.jpg",
+        thumbnail: "projects/images/thumbnails/namo-thumb.jpg",
         tag: ["UI/UX", "Branding"],
         slug: "namo"
     },
-    {
-        color: "#f3593f",
-        name: "Cooking Assistant, SAVRR",
-        thumbnail: "projects/temp_thumbnail.jpg",
-        tag: ["UI/UX"],
-        slug: "savrr"
-    },
+    /* {
+        color: "#5081b3",
+        name: "Heta Architects Website Renewal",
+        thumbnail: "projects/images/thumbnails/heta-thumb.jpg",
+        tag: ["Web", "Branding"],
+        slug: "heta-internship"
+    }, */
     {
         color: "#0c8c84",
         name: "Logical Cycling, Cyclogic",
-        thumbnail: "projects/temp_thumbnail.jpg",
+        thumbnail: "projects/images/thumbnails/cyclogic-thumb.jpg",
         tag: ["UI/UX"],
         slug: "cyclogic"
     },
     {
+        color: "#f3593f",
+        name: "Cooking Assistant, SAVRR",
+        thumbnail: "projects/images/thumbnails/savrr-thumb.jpg",
+        tag: ["UI/UX"],
+        slug: "savrr"
+    },
+    {
         color: "#f4e116",
-        name: "SkillGrip",
-        thumbnail: "projects/temp_thumbnail.jpg",
+        name: "Ultimate Grip Trainer, SkillGrip",
+        thumbnail: "projects/images/thumbnails/skillgrip-thumb.png",
         tag: ["Product", "Coding"],
         slug: "skillgrip"
     },
-    {
-        color: "#5081b3",
-        name: "Heta Architects Website Renewal",
-        thumbnail: "projects/temp_thumbnail.jpg",
-        tag: ["Web", "Branding"],
-        slug: "temp"
-    },
-    {
+    /* {
         color: "#16274a",
         name: "H3 Investments Branding",
         thumbnail: "projects/temp_thumbnail.jpg",
         tag: ["Branding"],
         slug: "temp"
-    },
+    }, 
     {
         color: "#dadada",
         name: "Portfolio Website",
         thumbnail: "projects/temp_thumbnail.jpg",
         tag: ["Web", "Coding"],
         slug: "temp"
-    },
+    }, */
     {
         color: "#17793d",
         name: "Lilou, the Dog",
-        thumbnail: "projects/temp_thumbnail.jpg",
+        thumbnail: "projects/images/thumbnails/lilou-thumb.jpg",
         tag: ["Product", "Coding"],
         slug: "gizmo-lilou"
     },
     {
         color: "#253054",
-        name: "Elenect Web Game",
-        thumbnail: "projects/temp_thumbnail.jpg",
+        name: "Web Game Elenect",
+        thumbnail: "projects/images/thumbnails/elenect-thumb.jpg",
         tag: ["Web", "Coding"],
         slug: "elenect"
     }
@@ -100,11 +100,50 @@ function initGlobalNav() {
     updateNavVisibility();
 }
 
+// Page Specific Accent Color
 function applyProjectColor(currentSlug) {
     const project = projects_preview.find(p => p.slug === currentSlug);
     if (project) {
         document.documentElement.style.setProperty("--gradient-main", project.color);
     } else return;
+}
+
+// Mobile Style Update
+function renderBlock() {
+    const projectWrapper = document.getElementById("project-wrapper");
+    const detailWrapper = document.getElementById("detail-wrapper");
+    const winWidth = window.innerWidth;
+    const widthThreshold = 600;
+    
+    const applyLogic = (element) => {
+        if (!element) return;
+        
+        if (winWidth <= widthThreshold) {
+            element.classList.remove("glass");
+        } else {
+            element.classList.add("glass");
+        }
+    }
+    
+    applyLogic(projectWrapper);
+    applyLogic(detailWrapper);
+}
+
+// Custom Cursor
+function updateCursor(e) {
+    let x = e.clientX;
+    let y = e.clientY;
+    document.documentElement.style.setProperty("--mouse-x", x + "px");
+    document.documentElement.style.setProperty("--mouse-y", y + "px");
+    
+    const cursor = document.getElementById("mycursor");
+    const target = e.target;
+    
+    if (target.closest("a") || target.closest("button")) {
+        cursor.classList.add("hovering");
+    } else {
+        cursor.classList.remove("hovering");
+    }
 }
 
 // Page Specific Module 
@@ -133,8 +172,11 @@ async function loadPageModule() {
     }
 }
 
-// Run Everything
 document.addEventListener("DOMContentLoaded", () => {
     initGlobalNav();
     loadPageModule(); 
+    renderBlock();
+    
+    window.addEventListener("resize", renderBlock);
+    window.addEventListener("mousemove", updateCursor);
 });

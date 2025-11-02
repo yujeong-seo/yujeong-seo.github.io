@@ -48,7 +48,7 @@ export function initProjectList(projects_preview) {
                 thumbnailPreview.classList.add("full");
             });
             projectBlock.addEventListener("mouseleave", () => {
-                document.documentElement.style.setProperty("--gradient-main", "#50535a");
+                document.documentElement.style.setProperty("--gradient-main", "#6c7ea3");
                 thumbnailPreview.classList.remove("full");
             });
             

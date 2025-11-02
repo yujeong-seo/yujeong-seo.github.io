@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-gb">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title> Yujeong Seo | SkillGrip </title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/main.css">
+    <script type="module" src="../js/main.js"></script>
+</head>
+
+<body id="page-project-detail"> 
+    <!-- Hero Background Wrapper -->
+    <div id="background">
+        <img id="background-img" src="/projects/images/skillgrip/skillgrip-main.jpg">
+        <div id="background-overlay"></div>
+        <h1 id="project-name" class="hero-header white-fade">
+            <span class="regular"> Ultimate Grip Trainer,</span> SkillGrip
+        </h1>
+    </div>
+    
+    <header>
+        <nav id="top-nav" class="glass"> 
+            <a href="../index.html" class="main-logo"></a>
+            <div id="left-nav">
+                <!-- Add left nav elements -->
+                <a href="../projects.html" class="regular">Projects</a> 
+            </div>
+        </nav>
+    </header>
+    
+    <section id="main-wrapper">
+        <main id="detail-wrapper" class="glass">
+            <!-- Information Block -->
+            <div class="project-row">
+                <div class="vflex">
+                    <div class="project-tag-container hflex">
+                        <div class="project-tag">Product</div>
+                        <div class="project-tag">Coding</div>
+                    </div>
+                    <div class="detail-info">
+                        <p> Jan-Jun 2024</p>
+                        <p> Team Project </p>
+                        <p> 'Industrial Design Engineering' Module </p>
+                    </div>
+                </div>
+                
+                <!-- Subtitle -->
+                <h4 class="section-header light">
+                    <b> How might we design a single tool to adapt across diverse athletic grip needs? </b>
+                    Iterating from prototype to product with purpose and precision.
+                </h4>
+            </div>
+            
+            <div class="hline"></div>
+            
+            <!-- Content: Overview -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Overview </h4>
+                <p class="body-text pret">
+                    SkillGrip was developed as part of a full-cycle industrial and mechatronic product design project, from early research through to prototyping and DFMA-level (Design for Manufacturing and Assembly) refinement.
+                    <br><br>
+                    Broadly started from the needs of sports players, the project landed on a modular grip trainer that 
+                    adapts to different sports and athletic training contexts. With interchangeable handles based on three key grip classifications - bar, ball, and crimp - the system supports tailored grip training for users ranging from hobbyists to professional athletes.
+                    <br><br>
+                    <i class="pret light gray"> * Technogym were not engaged in any consultancy or collaborative capacity with this project and the outcome is in no way endorsed by them. Any publicity is limited to personal and academic use. </i>
+                </p>
+            </div>
+            
+            <!-- Content: Problem -->
+            <div class="project-row">
+                <h4 class="title-text bold"> Problem </h4>
+                <div class="project-content">
+                    <p class="body-text pret">
+                        Starting broadly at sports player's need, the team held an interview and survey against hobbyists - professional level of athelets.
+                        As a result, we identified the following specific points to address. <br><br>
+                    </p>
+                    <div class="problem-wrapper">
+                        <div class="problem-block"> 
+                            <b> Three Main Grip Types </b><br>
+                            <span class="pret light"> 
+                                Through synthesis, three distinct grip types of ball, bar, and pinch were identified, each requiring different contact areas and training patterns.
+                            </span>
+                        </div>
+                        <div class="problem-block"> 
+                            <b> Limited and High Stiffness </b><br>
+                            <span class="pret light"> 
+                                Existing grip trainers often suffer from limited adjustability and high stiffness, causing strain or injury during use.
+                            </span>
+                        </div>
+                        <div class="problem-block"> 
+                            <b> Beyond Grip Strength </b><br>
+                            <span class="pret light"> 
+                                Effective performance training requires integrated wrist and forearm strengthening, not just isolated grip improvement.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-60" src="/projects/images/skillgrip/skillgrip-persona.png">
+                <img class="image ratio-50" src="/projects/images/skillgrip/skillgrip-journey.png">
+                <span><i class="pret light test gray"> ↑ User Insights and Synthesis <br><br></i></span>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <div class="problem-wrapper">
+                    <div><img class="image ratio-75" src="/projects/images/skillgrip/skillgrip-mech1.png"></div>
+                    <div><img class="image ratio-75" src="/projects/images/skillgrip/skillgrip-mech2.png"></div>
+                </div>
+                <div class="project-row test">
+                    <span class="bold gray"> MECHANISM </span>
+                    <span class="pret light">
+                        The mechanical system to control the dynamic resistance was explored. <b>Leading screw</b> method
+                        was chosen over direct motor roll and rack and pinion method due to its high precision and ability to prevent backdriving.
+                        <br><br>
+                        Then electronic controls were integrated with Arduino C++, incorporating button inputs to motor rotations and LED indicators.
+                        The motor rotation adjusts the location of the lead screw, increasing or decreaasing tension to match user input.
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-75" src="/projects/images/skillgrip/skillgrip-prototype1.jpg">
+                <div class="problem-wrapper">
+                    <div><img class="image ratio-75" src="/projects/images/skillgrip/skillgrip-prototype2.jpg"></div>
+                    <div><img class="image ratio-75" src="/projects/images/skillgrip/skillgrip-prototype3.jpg"></div>
+                </div>
+                <div class="project-row test">
+                    <span class="bold gray"> PROTOTYPING & ITERATION </span>
+                    <span class="pret light">
+                        The CAD model was developed in Fusion 360 with full consideration for manufacturability and assembly efficiency.
+                        <ul>
+                            <li class="pret light"> Electronics proximity that does not interfere with other motions </li>
+                            <li class="pret light"> Ribs, bosses, and fillets for internal strength and tolerance management </li>
+                            <li class="pret light"> Snap-fit, press-fit and joining techniques for modular assembly </li> 
+                            <li class="pret light"> Horizontal motor assembly and z-axis final assembly </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Image Element -->
+            <div class="image-group">
+                <img class="image ratio-60" src="/projects/images/skillgrip/skillgrip-branding.png">
+                <div class="project-row test">
+                    <span class="bold gray"> BRANDING </span>
+                    <span class="pret light">
+                        Technogym with the value of spreading the wellness lifestyle is selected as branding extension.
+                        To align with "Skill" product line, visual and tactile cues were incorporated across form and finish. 
+                    </span>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Block for contact -->
+
+        <footer id="footer">
+            <a class="arrow-to-top" href="#top">
+                <span>Back to Top</span>
+            </a>
+            <p> © 2025, Yujeong Seo </p>
+        </footer>
+    </section>
+    
+    <div id="mycursor"></div>
+</body>
+</html>
