@@ -31,7 +31,7 @@ const projects_preview = [
     {
         color: "#f4e116",
         name: "Ultimate Grip Trainer, SkillGrip",
-        thumbnail: "projects/images/thumbnails/skillgrip-thumb.png",
+        thumbnail: "projects/images/thumbnails/skillgrip-thumb.jpg",
         tag: ["Product", "Coding"],
         slug: "skillgrip"
     },
@@ -125,7 +125,6 @@ function renderBlock() {
         }
     }
     
-    applyLogic(projectWrapper);
     applyLogic(detailWrapper);
 }
 
