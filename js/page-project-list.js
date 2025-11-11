@@ -26,8 +26,6 @@ export function initProjectList(projects_preview) {
 
             clone.querySelector(".project-name").textContent = name;
             clone.querySelector(".project-link-wrapper").href = `/projects/${slug}.html`;
-            const colorBlock = clone.querySelector(".project-color");
-            colorBlock.style.backgroundColor = color;
             const thumbnailPreview = clone.querySelector(".thumbnail-preview");
             thumbnailPreview.style.backgroundImage = `url('${thumbnail}')`;;
 
